@@ -49,7 +49,16 @@ const modalData = computed(() => {
       financedAmount: 0,
       interestRate: 0,
       term: 0,
-      firstPayment: 0
+      firstPayment: 0,
+      sacFirstPayment: 0,
+      sacLastPayment: 0,
+      sacTotalPaid: 0,
+      sacTotalInterest: 0,
+      pricePayment: 0,
+      priceTotalPaid: 0,
+      priceTotalInterest: 0,
+      totalPaid: 0,
+      lastPayment: 0
     }
   }
   return {
@@ -58,7 +67,16 @@ const modalData = computed(() => {
     financedAmount: simulationStore.results.financedAmount,
     interestRate: simulationStore.results.interestRate,
     term: simulationStore.results.term,
-    firstPayment: simulationStore.results.sacFirstPayment
+    firstPayment: simulationStore.results.sacFirstPayment,
+    sacFirstPayment: simulationStore.results.sacFirstPayment,
+    sacLastPayment: simulationStore.results.sacLastPayment,
+    sacTotalPaid: simulationStore.results.sacTotalPaid,
+    sacTotalInterest: simulationStore.results.sacTotalInterest,
+    pricePayment: simulationStore.results.pricePayment,
+    priceTotalPaid: simulationStore.results.priceTotalPaid,
+    priceTotalInterest: simulationStore.results.priceTotalInterest,
+    totalPaid: simulationStore.results.sacTotalPaid,
+    lastPayment: simulationStore.results.sacLastPayment
   }
 })
 
