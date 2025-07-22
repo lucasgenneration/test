@@ -212,6 +212,16 @@ const handleSubmit = () => {
     term: formData.value.term,
     interestRate: 0.009489 // 0.9489% ao mês (aproximadamente 12% ao ano)
   })
+  
+  // Scroll para o resultado no mobile
+  if (window.innerWidth < 768) {
+    setTimeout(() => {
+      const resultElement = document.querySelector('#simulation-result')
+      if (resultElement) {
+        resultElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }, 100)
+  }
 }
 
 // Initialize with example values

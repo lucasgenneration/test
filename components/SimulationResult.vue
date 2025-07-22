@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white rounded-2xl shadow-sm border border-gray-200/50 p-6">
+  <div id="simulation-result" class="bg-white rounded-2xl shadow-sm border border-gray-200/50 p-6">
     <h2 class="text-xl font-semibold text-gray-900 mb-6">Resultado da Simulação</h2>
     
     <div v-if="simulationStore.results" class="space-y-6">

@@ -186,12 +186,21 @@
     @close="handleLoginModalClose"
     @login-success="handleLoginSuccess"
   />
+  
+  <!-- Simulation Details Modal -->
+  <SimulationDetailsModal
+    v-if="selectedSimulation"
+    :is-open="showDetailsModal"
+    :simulation="selectedSimulation"
+    @close="showDetailsModal = false"
+  />
 </template>
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { formatCurrency } from '~/utils/formatters'
 import LoginModal from '~/components/LoginModal.vue'
+import SimulationDetailsModal from '~/components/SimulationDetailsModal.vue'
 import { downloadProposalPDF } from '~/utils/pdfGenerator'
 
 // Define page meta with middleware
@@ -271,8 +280,12 @@ const formatDate = (date: Date) => {
   }).format(date)
 }
 
+const selectedSimulation = ref<any>(null)
+const showDetailsModal = ref(false)
+
 const viewDetails = (simulation: any) => {
-  alert(`Visualizando detalhes da simulação #${simulation.id}`)
+  selectedSimulation.value = simulation
+  showDetailsModal.value = true
 }
 
 const downloadPdf = async (simulation: any) => {
