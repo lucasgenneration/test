@@ -16,7 +16,7 @@
         ></div>
         
         <!-- Wizard Container -->
-        <div class="flex min-h-full items-center justify-center p-4">
+        <div class="flex min-h-full items-start sm:items-center justify-center p-4 sm:p-6">
           <Transition
             enter-active-class="transition-all duration-300 ease-out"
             enter-from-class="opacity-0 scale-95 translate-y-4"
@@ -25,13 +25,13 @@
             leave-from-class="opacity-100 scale-100 translate-y-0"
             leave-to-class="opacity-0 scale-95 translate-y-4"
           >
-            <div v-if="isOpen" class="relative w-full max-w-2xl">
+            <div v-if="isOpen" class="relative w-full max-w-2xl my-8">
               <!-- Wizard Content -->
-              <div class="bg-white rounded-3xl shadow-2xl overflow-hidden">
+              <div class="bg-white rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
                 <!-- Progress Bar -->
-                <div class="bg-gradient-to-r from-blue-500 to-blue-600 px-8 pt-8 pb-6">
-                  <div class="flex items-center justify-between mb-6">
-                    <h2 class="text-2xl font-semibold text-white">
+                <div class="bg-gradient-to-r from-blue-500 to-blue-600 px-6 sm:px-8 pt-6 sm:pt-8 pb-4 sm:pb-6 flex-shrink-0">
+                  <div class="flex items-center justify-between mb-4 sm:mb-6">
+                    <h2 class="text-xl sm:text-2xl font-semibold text-white">
                       {{ currentStepTitle }}
                     </h2>
                     <button
@@ -72,7 +72,7 @@
                 </div>
                 
                 <!-- Content Area -->
-                <div class="p-8">
+                <div class="p-6 sm:p-8 overflow-y-auto flex-1">
                   <TransitionGroup
                     enter-active-class="transition-all duration-300 ease-out"
                     enter-from-class="opacity-0 translate-x-4"
@@ -179,11 +179,11 @@
                         <p class="text-gray-600">Selecione a melhor opção para seu perfil</p>
                       </div>
                       
-                      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
                         <!-- SAC Option -->
                         <div 
                           @click="selectedMethod = 'sac'"
-                          class="relative border-2 rounded-2xl p-6 cursor-pointer transition-all"
+                          class="relative border-2 rounded-2xl p-4 sm:p-6 cursor-pointer transition-all"
                           :class="selectedMethod === 'sac' ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-gray-300'"
                         >
                           <div v-if="selectedMethod === 'sac'" class="absolute top-4 right-4">
@@ -216,7 +216,7 @@
                         <!-- Price Option -->
                         <div 
                           @click="selectedMethod = 'price'"
-                          class="relative border-2 rounded-2xl p-6 cursor-pointer transition-all"
+                          class="relative border-2 rounded-2xl p-4 sm:p-6 cursor-pointer transition-all"
                           :class="selectedMethod === 'price' ? 'border-purple-500 bg-purple-50' : 'border-gray-200 hover:border-gray-300'"
                         >
                           <div v-if="selectedMethod === 'price'" class="absolute top-4 right-4">
@@ -334,7 +334,7 @@
                 </div>
                 
                 <!-- Footer Actions -->
-                <div class="bg-gray-50 px-8 py-6 border-t border-gray-200">
+                <div class="bg-gray-50 px-6 sm:px-8 py-4 sm:py-6 border-t border-gray-200 flex-shrink-0">
                   <div class="flex justify-between items-center">
                     <button
                       v-if="currentStep > 1 && !isLoading"
